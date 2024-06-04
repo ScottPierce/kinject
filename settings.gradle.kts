@@ -21,4 +21,5 @@ dependencyResolutionManagement {
 
 rootProject.name = "kinject"
 
+include(":benchmark")
 include(":kinject")
