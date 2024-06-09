@@ -9,3 +9,4 @@ kotlinx-benchmark = { module = "org.jetbrains.kotlinx:kotlinx-benchmark-runtime"
 kotlin-allOpen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinx-benchmark = { id = "org.jetbrains.kotlinx.benchmark", version.ref = "kotlinxBenchmark" }
+gradleMavenPublish = { id = "com.vanniktech.maven.publish", version = "0.28.0" }

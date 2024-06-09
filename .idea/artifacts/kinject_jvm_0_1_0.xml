@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="kinject-jvm-0.1.0">
+    <output-path>$PROJECT_DIR$/kinject/build/libs</output-path>
+    <root id="archive" name="kinject-jvm-0.1.0.jar">
+      <element id="module-output" name="kinject.kinject.jvmMain" />
+    </root>
+  </artifact>
+</component>
