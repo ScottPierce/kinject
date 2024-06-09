@@ -4,8 +4,12 @@ package kinject
 
 import platform.objc.objc_sync_enter
 import platform.objc.objc_sync_exit
+import kotlin.reflect.KClass
 
 internal actual object KinjectPlatform {
+    actual val KClass<*>.bindingId: String
+        get() = this.qualifiedName ?: error("No qualified name found for '$this'")
+
     actual inline fun <R> synchronized(lock: Any, func: () -> R): R {
         objc_sync_enter(lock)
         try {
