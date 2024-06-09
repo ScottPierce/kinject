@@ -33,12 +33,12 @@ if (System.getenv()["GITHUB_REF_TYPE"] == "tag" && ref?.startsWith("refs/tags/v"
     println("Releasing Version: $version")
 
     mavenPublishing {
-        publishToMavenCentral(SonatypeHost.S01, automaticRelease = true)
+        publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = true)
 
         signAllPublications()
 
         coordinates(
-            groupId = "io.github.scottpierce",
+            groupId = "dev.scottpierce",
             artifactId = "kinject",
             version = version,
         )

@@ -1,5 +1,6 @@
 package kinject
 
+import kinject.KinjectPlatform.bindingId
 import kotlin.reflect.KClass
 
 inline fun objectGraph(
@@ -58,6 +59,3 @@ class ObjectGraph private constructor(
         }
     }
 }
-
-private val KClass<*>.bindingId: String
-    get() = this.qualifiedName ?: error("No qualified name found for '$this'")
