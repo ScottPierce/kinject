@@ -2,11 +2,27 @@
 kotlin = "2.0.0"
 kotlinxBenchmark = "0.4.10"
 
+agp = "8.2.0"
+junit = "4.13.2"
+junitVersion = "1.1.5"
+androidx-benchmark = "1.2.4"
+runner = "1.5.2"
+benchmarkJunit4 = "1.2.4"
+
 [libraries]
+androidx-benchmark-junit4 = { group = "androidx.benchmark", name = "benchmark-junit4", version.ref = "benchmarkJunit4" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+koin-core = { module = "io.insert-koin:koin-core", version = "3.2.0" }
 kotlinx-benchmark = { module = "org.jetbrains.kotlinx:kotlinx-benchmark-runtime", version.ref = "kotlinxBenchmark" }
 
 [plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+android-library = { id = "com.android.library", version.ref = "agp" }
+androidx-benchmark = { id = "androidx.benchmark", version.ref = "androidx-benchmark" }
 kotlin-allOpen = { id = "org.jetbrains.kotlin.plugin.allopen", version.ref = "kotlin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinx-benchmark = { id = "org.jetbrains.kotlinx.benchmark", version.ref = "kotlinxBenchmark" }
 gradleMavenPublish = { id = "com.vanniktech.maven.publish", version = "0.28.0" }

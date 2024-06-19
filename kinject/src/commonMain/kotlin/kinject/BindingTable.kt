@@ -7,7 +7,7 @@ internal interface BindingTable : Iterable<Binding> {
     operator fun get(className: String): Binding?
 }
 
-internal fun BindingTable(capacity: Int): BindingTable = HashedBindingTable(capacity = capacity)
+internal fun BindingTable(capacity: Int): BindingTable = HashMapBindingTable(capacity = capacity)
 
 private class HashMapBindingTable(capacity: Int) : BindingTable {
     private val map = HashMap<String, Binding>(capacity)

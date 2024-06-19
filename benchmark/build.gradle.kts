@@ -6,10 +6,14 @@ plugins {
 
 kotlin {
     jvm()
+    macosArm64()
+    js {
+        nodejs()
+    }
 
     sourceSets {
         commonMain.dependencies {
-            implementation(project(":kinject"))
+            implementation(project(":benchmark-shared"))
             implementation(libs.kotlinx.benchmark)
         }
     }
@@ -22,5 +26,7 @@ allOpen {
 benchmark {
     targets {
         register("jvm")
+        register("macosArm64")
+        register("js")
     }
 }

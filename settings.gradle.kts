@@ -21,4 +21,6 @@ dependencyResolutionManagement {
 rootProject.name = "kinject"
 
 include(":benchmark")
+include(":benchmark-android")
+include(":benchmark-shared")
 include(":kinject")
