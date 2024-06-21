@@ -12,7 +12,7 @@ inline fun objectGraph(
 }
 
 class ObjectGraph private constructor(
-    private val bindingTable: BindingTable,
+    private val bindings: Map<String, Binding>,
 ) {
     inline fun <reified T : Any> get(): T = get(T::class)
 
@@ -20,16 +20,16 @@ class ObjectGraph private constructor(
 
     @Suppress("UNCHECKED_CAST")
     private fun <T : Any> internalGet(className: String, tag: String? = null): T {
-        val binding = bindingTable[className]
+        val binding = bindings[className]
             ?: throw BindingNotFoundException("Binding not found for class '$className'")
         return binding.resolve(this) as T
     }
 
     class Builder {
-        private val bindings: MutableList<Binding> = mutableListOf()
+        private val bindings: MutableMap<String, Binding> = HashMap()
 
         fun add(objectGraph: ObjectGraph) {
-            bindings.addAll(objectGraph.bindingTable)
+            bindings.putAll(objectGraph.bindings)
         }
 
         inline fun <reified T : Any> singleton(
@@ -40,22 +40,20 @@ class ObjectGraph private constructor(
             clazz: KClass<T>,
             provider: ObjectGraph.() -> T,
         ) {
-            bindings += SingletonLazyBinding(clazz.bindingId, provider)
+            val bindingId = clazz.bindingId
+            bindings[bindingId] = SingletonLazyBinding(bindingId, provider)
         }
 
         fun <T : Any> singleton(
             instance: T,
             bindType: KClass<*> = instance::class,
         ) {
-            bindings += SingletonBinding(bindType.bindingId, instance)
+            val bindingId = bindType.bindingId
+            bindings[bindingId] = SingletonBinding(bindingId, instance)
         }
 
         fun build(): ObjectGraph {
-            val bindingTable = BindingTable(bindings.size)
-            for (binding in bindings) {
-                bindingTable.put(binding)
-            }
-            return ObjectGraph(bindingTable)
+            return ObjectGraph(bindings)
         }
     }
 }
