@@ -1,6 +1,6 @@
 package kinject
 
-import kinject.KinjectPlatform.bindingId
+import kinject.KinjectPlatform.className
 import kotlin.reflect.KClass
 
 inline fun objectGraph(
@@ -16,7 +16,7 @@ class ObjectGraph private constructor(
 ) {
     inline fun <reified T : Any> get(): T = get(T::class)
 
-    fun <T : Any> get(clazz: KClass<T>): T = internalGet(clazz.bindingId)
+    fun <T : Any> get(clazz: KClass<T>): T = internalGet(clazz.className)
 
     @Suppress("UNCHECKED_CAST")
     private fun <T : Any> internalGet(className: String, tag: String? = null): T {
@@ -40,7 +40,7 @@ class ObjectGraph private constructor(
             clazz: KClass<T>,
             provider: ObjectGraph.() -> T,
         ) {
-            val bindingId = clazz.bindingId
+            val bindingId = clazz.className
             bindings[bindingId] = SingletonLazyBinding(bindingId, provider)
         }
 
@@ -48,7 +48,7 @@ class ObjectGraph private constructor(
             instance: T,
             bindType: KClass<*> = instance::class,
         ) {
-            val bindingId = bindType.bindingId
+            val bindingId = bindType.className
             bindings[bindingId] = SingletonBinding(bindingId, instance)
         }
 

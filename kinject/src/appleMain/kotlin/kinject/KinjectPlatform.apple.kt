@@ -7,7 +7,7 @@ import platform.objc.objc_sync_exit
 import kotlin.reflect.KClass
 
 internal actual object KinjectPlatform {
-    actual val KClass<*>.bindingId: String
+    actual val KClass<*>.className: String
         get() = this.qualifiedName ?: error("No qualified name found for '$this'")
 
     actual inline fun <R> synchronized(lock: Any, func: () -> R): R {

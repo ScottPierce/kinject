@@ -5,7 +5,7 @@ package kinject
 import kotlin.reflect.KClass
 
 internal expect object KinjectPlatform {
-    val KClass<*>.bindingId: String
+    val KClass<*>.className: String
 
     inline fun <R> synchronized(lock: Any, func: () -> R): R
 }
