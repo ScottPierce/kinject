@@ -1,5 +1,7 @@
 # Kinject
 
+[![Download](https://img.shields.io/maven-central/v/dev.scottpierce/kinject)](https://central.sonatype.com/artifact/dev.scottpierce/kinject/versions)
+
 **This is from a blog post series on creating a Kotlin Dependency Injection Library.
 You can find all the posts [here](https://scottpierce.dev/categories/making-a-kotlin-dependency-injection-library/).**
 
