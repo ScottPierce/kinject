@@ -19,7 +19,7 @@ class ObjectGraph private constructor(
     fun <T : Any> get(clazz: KClass<T>): T = internalGet(clazz.className)
 
     @Suppress("UNCHECKED_CAST")
-    private fun <T : Any> internalGet(className: String, tag: String? = null): T {
+    private fun <T : Any> internalGet(className: String): T {
         val binding = bindings[className]
             ?: throw BindingNotFoundException("Binding not found for class '$className'")
         return binding.resolve(this) as T
@@ -29,7 +29,9 @@ class ObjectGraph private constructor(
         private val bindings: MutableMap<String, Binding> = HashMap()
 
         fun add(objectGraph: ObjectGraph) {
-            bindings.putAll(objectGraph.bindings)
+            for ((bindingKey, binding) in objectGraph.bindings) {
+                addBinding(binding = binding, key = bindingKey)
+            }
         }
 
         inline fun <reified T : Any> singleton(
@@ -40,16 +42,33 @@ class ObjectGraph private constructor(
             clazz: KClass<T>,
             provider: ObjectGraph.() -> T,
         ) {
-            val bindingId = clazz.className
-            bindings[bindingId] = SingletonLazyBinding(bindingId, provider)
+            val bindingKey = clazz.className
+            addBinding(
+                key = bindingKey,
+                binding = SingletonLazyBinding(key = bindingKey, provider = provider)
+            )
         }
 
         fun <T : Any> singleton(
             instance: T,
             bindType: KClass<*> = instance::class,
         ) {
-            val bindingId = bindType.className
-            bindings[bindingId] = SingletonBinding(bindingId, instance)
+            val bindingKey = bindType.className
+            addBinding(
+                key = bindingKey,
+                binding = SingletonBinding(key = bindingKey, instance = instance)
+            )
+        }
+
+        private fun addBinding(
+            key: String,
+            binding: Binding,
+        ) {
+            if (bindings.containsKey(key)) {
+                throw KinjectException("Duplicate binding for class '${binding.key}'")
+            } else {
+                bindings[key] = binding
+            }
         }
 
         fun build(): ObjectGraph {

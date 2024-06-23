@@ -3,8 +3,6 @@
 package kinject.benchmark
 
 import kotlinx.benchmark.Benchmark
-import kotlinx.benchmark.BenchmarkMode
-import kotlinx.benchmark.Mode
 import kotlinx.benchmark.Scope
 import kotlinx.benchmark.State
 
@@ -20,13 +18,13 @@ class CreateBenchmark {
         LargeExample.createKinject()
     }
 
-//    @Benchmark
-//    fun koinSmall() {
-//        SmallExample.createKoin()
-//    }
-//
-//    @Benchmark
-//    fun koinLarge() {
-//        LargeExample.createKoin()
-//    }
+    @Benchmark
+    fun koinSmall() {
+        SmallExample.createKoin()
+    }
+
+    @Benchmark
+    fun koinLarge() {
+        LargeExample.createKoin()
+    }
 }

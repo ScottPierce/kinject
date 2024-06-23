@@ -4,8 +4,6 @@ package kinject.benchmark
 
 import kinject.ObjectGraph
 import kotlinx.benchmark.Benchmark
-import kotlinx.benchmark.BenchmarkMode
-import kotlinx.benchmark.Mode
 import kotlinx.benchmark.Scope
 import kotlinx.benchmark.Setup
 import kotlinx.benchmark.State
@@ -36,13 +34,13 @@ class InjectionBenchmark {
         largeExampleKinject.get<LargeExample>()
     }
 
-//    @Benchmark
-//    fun koinSmall() {
-//        smallExampleKoin.get<SmallExample>()
-//    }
-//
-//    @Benchmark
-//    fun koinLarge() {
-//        largeExampleKoin.get<LargeExample>()
-//    }
+    @Benchmark
+    fun koinSmall() {
+        smallExampleKoin.get<SmallExample>()
+    }
+
+    @Benchmark
+    fun koinLarge() {
+        largeExampleKoin.get<LargeExample>()
+    }
 }

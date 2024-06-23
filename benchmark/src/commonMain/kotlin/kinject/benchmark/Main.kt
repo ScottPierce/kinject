@@ -1,5 +1,8 @@
 package kinject.benchmark
 
+/**
+ * A main method for profiling the application
+ */
 fun main() {
     val largeExamples = (1..10000)
         .map {

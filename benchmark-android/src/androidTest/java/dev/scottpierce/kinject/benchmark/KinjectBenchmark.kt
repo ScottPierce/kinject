@@ -28,20 +28,6 @@ class KinjectBenchmark {
         }
     }
 
-//    @Test
-//    fun koinCreateSmall() {
-//        benchmarkRule.measureRepeated {
-//            SmallExample.createKoin()
-//        }
-//    }
-//
-//    @Test
-//    fun koinCreateLarge() {
-//        benchmarkRule.measureRepeated {
-//            LargeExample.createKoin()
-//        }
-//    }
-
     @Test
     fun kinjectInjectSmall() {
         benchmarkRule.measureRepeated {
@@ -58,20 +44,33 @@ class KinjectBenchmark {
         }
     }
 
+    @Test
+    fun koinCreateSmall() {
+        benchmarkRule.measureRepeated {
+            SmallExample.createKoin()
+        }
+    }
 
-//    @Test
-//    fun koinInjectSmall() {
-//        benchmarkRule.measureRepeated {
-//            val koin = SmallExample.createKoin()
-//            koin.get<SmallExample>()
-//        }
-//    }
-//
-//    @Test
-//    fun koinInjectLarge() {
-//        benchmarkRule.measureRepeated {
-//            val koin = LargeExample.createKoin()
-//            koin.get<LargeExample>()
-//        }
-//    }
+    @Test
+    fun koinCreateLarge() {
+        benchmarkRule.measureRepeated {
+            LargeExample.createKoin()
+        }
+    }
+
+    @Test
+    fun koinInjectSmall() {
+        benchmarkRule.measureRepeated {
+            val koin = SmallExample.createKoin()
+            koin.get<SmallExample>()
+        }
+    }
+
+    @Test
+    fun koinInjectLarge() {
+        benchmarkRule.measureRepeated {
+            val koin = LargeExample.createKoin()
+            koin.get<LargeExample>()
+        }
+    }
 }
