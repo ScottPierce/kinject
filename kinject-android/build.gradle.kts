@@ -1,12 +1,12 @@
 plugins {
     alias(libs.plugins.android.library)
-    alias(libs.plugins.androidx.benchmark)
     alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.gradleMavenPublish)
 }
 
 android {
-    namespace = "dev.scottpierce.kinject.benchmark"
-    compileSdk = 34
+    namespace = "kinject.android"
+    compileSdk = libs.versions.android.compileSdk.get().toInt()
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -18,7 +18,7 @@ android {
     }
 
     defaultConfig {
-        minSdk = 24
+        minSdk = libs.versions.android.minSdk.get().toInt()
         testOptions.targetSdk = libs.versions.android.targetSdk.get().toInt()
         testInstrumentationRunner = "androidx.benchmark.junit4.AndroidBenchmarkRunner"
     }
@@ -41,10 +41,6 @@ android {
 }
 
 dependencies {
-    androidTestImplementation(project(":benchmark-shared"))
-
-    androidTestImplementation(libs.androidx.runner)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.benchmark.junit4)
+    api(project(":kinject"))
+    implementation(libs.androidx.lifecycle.viewmodel.android)
 }

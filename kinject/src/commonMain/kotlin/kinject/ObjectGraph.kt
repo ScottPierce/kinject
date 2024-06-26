@@ -19,7 +19,7 @@ class ObjectGraph private constructor(
     fun <T : Any> get(clazz: KClass<T>): T = internalGet(clazz.className)
 
     @Suppress("UNCHECKED_CAST")
-    private fun <T : Any> internalGet(className: String): T {
+    internal fun <T : Any> internalGet(className: String): T {
         val binding = bindings[className]
             ?: throw BindingNotFoundException("Binding not found for class '$className'")
         return binding.resolve(this) as T
@@ -57,6 +57,21 @@ class ObjectGraph private constructor(
             addBinding(
                 key = bindingKey,
                 binding = SingletonBinding(key = bindingKey, instance = instance)
+            )
+        }
+
+        inline fun <reified T : Any> factory(
+            noinline provider: ObjectGraph.() -> T,
+        ): Unit = singleton(T::class, provider)
+
+        fun <T : Any> factory(
+            clazz: KClass<T>,
+            provider: ObjectGraph.() -> T,
+        ) {
+            val bindingKey = clazz.className
+            addBinding(
+                key = bindingKey,
+                binding = FactoryBinding(key = bindingKey, provider = provider)
             )
         }
 
