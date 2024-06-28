@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.support.kotlinCompilerOptions
-
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -8,7 +6,7 @@ plugins {
 }
 
 android {
-    namespace = "kinject.compose"
+    namespace = "kinject.viewmodel.compose"
 
     buildFeatures {
         compose = true
@@ -16,14 +14,20 @@ android {
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
     }
-}
 
-composeCompiler {
-    stabilityConfigurationFile = project.layout.projectDirectory.file("compose-stability-config.conf")
+    testBuildType = "release"
+    buildTypes {
+        debug {
+        }
+        release {
+            isDefault = true
+        }
+    }
 }
 
 dependencies {
-    implementation(project(":kinject"))
-    implementation(platform(libs.compose.bom))
-    implementation(libs.compose.runtime)
+    api(project(":kinject-android"))
+    api(project(":kinject-compose"))
+    api(project(":kinject-viewmodel"))
+    implementation(libs.androidx.lifecycle.viewmodel.compose)
 }

@@ -20,10 +20,12 @@ dependencyResolutionManagement {
 
 rootProject.name = "kinject"
 
-include(":benchmark")
-include(":benchmark-android")
-include(":benchmark-shared")
+include(":benchmark:benchmark-android")
+include(":benchmark:benchmark-kotlin")
+include(":benchmark:benchmark-shared")
 include(":kinject")
 include(":kinject-android")
 include(":kinject-compose")
+include(":kinject-compose-viewmodel")
 include(":kinject-viewmodel")
+include(":sample:kinject-sample-android")

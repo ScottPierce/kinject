@@ -7,37 +7,6 @@ plugins {
 android {
     namespace = "kinject.android"
     compileSdk = libs.versions.android.compileSdk.get().toInt()
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-
-    defaultConfig {
-        minSdk = libs.versions.android.minSdk.get().toInt()
-        testOptions.targetSdk = libs.versions.android.targetSdk.get().toInt()
-        testInstrumentationRunner = "androidx.benchmark.junit4.AndroidBenchmarkRunner"
-    }
-
-    testBuildType = "release"
-    buildTypes {
-        debug {
-            // Since isDebuggable can't be modified by gradle for library modules,
-            // it must be done in a manifest - see src/androidTest/AndroidManifest.xml
-            isMinifyEnabled = true
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "benchmark-proguard-rules.pro"
-            )
-        }
-        release {
-            isDefault = true
-        }
-    }
 }
 
 dependencies {
