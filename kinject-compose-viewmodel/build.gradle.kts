@@ -6,22 +6,13 @@ plugins {
 }
 
 android {
-    namespace = "kinject.viewmodel.compose"
+    namespace = "kinject.compose.viewmodel"
 
     buildFeatures {
         compose = true
     }
     composeOptions {
         kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
-    }
-
-    testBuildType = "release"
-    buildTypes {
-        debug {
-        }
-        release {
-            isDefault = true
-        }
     }
 }
 

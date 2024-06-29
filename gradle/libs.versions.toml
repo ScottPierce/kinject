@@ -50,4 +50,4 @@ kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 kotlin-multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 kotlinx-benchmark = { id = "org.jetbrains.kotlinx.benchmark", version.ref = "kotlinxBenchmark" }
-gradleMavenPublish = { id = "com.vanniktech.maven.publish", version = "0.28.0" }
+gradleMavenPublish = { id = "com.vanniktech.maven.publish", version = "0.29.0" }
