@@ -27,7 +27,7 @@ object AndroidConfig {
 
 val javaVersion = JavaVersion.VERSION_1_8
 val javaVersionInt = javaVersion.ordinal + 1
-val jvmTarget = JvmTarget.fromTarget(javaVersion.majorVersion)
+val jvmTarget = JvmTarget.JVM_1_8
 
 subprojects {
     group = "dev.scottpierce"
