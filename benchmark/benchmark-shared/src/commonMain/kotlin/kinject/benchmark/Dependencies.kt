@@ -312,5 +312,5 @@ class AllDependencies(
     val wwww: WWWW,
     val xxxx: XXXX,
     val yyyy: YYYY,
-    val zzzz: ZZZZ
+    val zzzz: ZZZZ,
 )

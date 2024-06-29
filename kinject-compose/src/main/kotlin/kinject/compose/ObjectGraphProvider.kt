@@ -7,7 +7,7 @@ import kinject.ObjectGraph
 @Composable
 fun ObjectGraphProvider(
     objectGraph: ObjectGraph,
-    content: @Composable () -> Unit
+    content: @Composable () -> Unit,
 ) {
     CompositionLocalProvider(
         LocalKinjectContext provides KinjectContext(objectGraph),

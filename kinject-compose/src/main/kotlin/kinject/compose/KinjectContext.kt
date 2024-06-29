@@ -5,8 +5,10 @@ import androidx.compose.runtime.compositionLocalOf
 import kinject.ObjectGraph
 
 val LocalKinjectContext = compositionLocalOf<KinjectContext> {
-    error("No ObjectGraph or KinjectCache provided. Please use the `ObjectGraphProvider` " +
-        "Composable in a root Composable.")
+    error(
+        "No ObjectGraph or KinjectCache provided. Please use the `ObjectGraphProvider` " +
+            "Composable in a root Composable.",
+    )
 }
 
 @Stable

@@ -45,7 +45,7 @@ class ObjectGraph private constructor(
             val bindingKey = clazz.className
             addBinding(
                 key = bindingKey,
-                binding = SingletonLazyBinding(key = bindingKey, provider = provider)
+                binding = SingletonLazyBinding(key = bindingKey, provider = provider),
             )
         }
 
@@ -56,7 +56,7 @@ class ObjectGraph private constructor(
             val bindingKey = bindType.className
             addBinding(
                 key = bindingKey,
-                binding = SingletonBinding(key = bindingKey, instance = instance)
+                binding = SingletonBinding(key = bindingKey, instance = instance),
             )
         }
 
@@ -71,7 +71,7 @@ class ObjectGraph private constructor(
             val bindingKey = clazz.className
             addBinding(
                 key = bindingKey,
-                binding = FactoryBinding(key = bindingKey, provider = provider)
+                binding = FactoryBinding(key = bindingKey, provider = provider),
             )
         }
 

@@ -3,8 +3,6 @@ package kinject.benchmark
 import kinject.ObjectGraph
 import kinject.objectGraph
 import org.koin.core.Koin
-import org.koin.core.context.startKoin
-import org.koin.core.module.dsl.singleOf
 import org.koin.dsl.koinApplication
 import org.koin.dsl.module
 
@@ -40,7 +38,7 @@ class SmallExample(
                         single { D(get(), get(), get()) }
                         single { E(get()) }
                         single { SmallExample(get(), get(), get(), get(), get()) }
-                    }
+                    },
                 )
             }
             return koinApp.koin

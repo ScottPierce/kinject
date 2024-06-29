@@ -15,8 +15,6 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import dev.scottpierce.kinject.sample.android.ui.theme.KinjectTheme
-import kinject.ObjectGraph
-import kinject.compose.LocalObjectGraph
 import kinject.compose.ObjectGraphProvider
 import kinject.compose.viewmodel.getViewModel
 import kinject.objectGraph
@@ -45,7 +43,7 @@ class MainActivity : ComponentActivity() {
 
                         Greeting(
                             name = name,
-                            modifier = Modifier.padding(innerPadding)
+                            modifier = Modifier.padding(innerPadding),
                         )
                     }
                 }
@@ -58,7 +56,7 @@ class MainActivity : ComponentActivity() {
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
-        modifier = modifier
+        modifier = modifier,
     )
 }
 

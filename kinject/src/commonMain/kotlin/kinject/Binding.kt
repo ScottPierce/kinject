@@ -20,9 +20,11 @@ internal class SingletonLazyBinding<T>(
                 val resolve = resolve
                 if (resolve != null) {
                     if (isResolving) {
-                        throw CyclicDependencyException("A cyclic dependency was found for '$key'" +
+                        throw CyclicDependencyException(
+                            "A cyclic dependency was found for '$key'" +
                                 "These should be avoided, but ObjectGraph.lazy() can be used as a work around if " +
-                                "necessary.")
+                                "necessary.",
+                        )
                     }
                     isResolving = true
 

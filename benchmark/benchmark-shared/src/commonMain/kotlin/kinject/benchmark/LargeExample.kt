@@ -385,11 +385,10 @@ class LargeExample(
                                 get(), get(), get(), get(), get(), get(), get(), get(), get(),
                             )
                         }
-                    }
+                    },
                 )
             }
             return koinApp.koin
         }
     }
 }
-
