@@ -95,7 +95,7 @@ subprojects {
         val version = ref.removePrefix("refs/tags/v")
         println("Releasing Version: $version")
 
-        plugins.withId(libs.plugins.gradleMavenPublish.get().pluginId) {
+        plugins.withId("com.vanniktech.maven.publish") {
             configure<com.vanniktech.maven.publish.MavenPublishBaseExtension> {
                 publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = true)
 
