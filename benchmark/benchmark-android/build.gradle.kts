@@ -6,20 +6,7 @@ plugins {
 
 android {
     namespace = "dev.scottpierce.kinject.benchmark"
-    compileSdk = 34
-
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = "1.8"
-    }
-
     defaultConfig {
-        minSdk = 24
-        testOptions.targetSdk = libs.versions.android.targetSdk.get().toInt()
         testInstrumentationRunner = "androidx.benchmark.junit4.AndroidBenchmarkRunner"
     }
 

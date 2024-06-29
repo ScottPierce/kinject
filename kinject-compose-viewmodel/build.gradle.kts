@@ -17,7 +17,6 @@ android {
 }
 
 dependencies {
-    api(project(":kinject-android"))
     api(project(":kinject-compose"))
     api(project(":kinject-viewmodel"))
     implementation(libs.androidx.lifecycle.viewmodel.compose)

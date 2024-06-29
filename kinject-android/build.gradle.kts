@@ -6,7 +6,6 @@ plugins {
 
 android {
     namespace = "kinject.android"
-    compileSdk = libs.versions.android.compileSdk.get().toInt()
 }
 
 dependencies {

@@ -1,27 +1,23 @@
 [versions]
+agp = "8.5.0"
 compose = "1.6.8"
+junit = "4.13.2"
 kotlin = "2.0.0"
 kotlinxBenchmark = "0.4.10"
-agp = "8.5.0"
-junit = "4.13.2"
-junitVersion = "1.1.5"
 androidx-benchmark = "1.2.4"
-runner = "1.6.0"
+runner = "1.6.1"
 benchmarkJunit4 = "1.2.4"
-android-minSdk = "24"
-android-targetSdk = "34"
-android-compileSdk = "34"
 lifecycleViewmodel = "2.8.2"
 compose-bom = "2024.06.00"
 compose-compiler = "1.5.14"
-coreKtx = "1.10.1"
-espressoCore = "3.5.1"
+coreKtx = "1.13.1"
+espressoCore = "3.6.1"
 lifecycleRuntimeKtx = "2.8.2"
 activityCompose = "1.9.0"
 
 [libraries]
 androidx-benchmark-junit4 = { group = "androidx.benchmark", name = "benchmark-junit4", version.ref = "benchmarkJunit4" }
-androidx-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+androidx-junit = { group = "androidx.test.ext", name = "junit", version = "1.2.1" }
 androidx-runner = { group = "androidx.test", name = "runner", version.ref = "runner" }
 compose-bom = { group = "androidx.compose", name = "compose-bom", version = "2024.06.00" }
 compose-runtime = { group = "androidx.compose.runtime", name = "runtime", version.ref = "compose" }
