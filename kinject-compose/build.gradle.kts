@@ -1,5 +1,3 @@
-import org.gradle.kotlin.dsl.support.kotlinCompilerOptions
-
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
@@ -24,6 +22,5 @@ composeCompiler {
 
 dependencies {
     implementation(project(":kinject"))
-    implementation(platform(libs.compose.bom))
     implementation(libs.compose.runtime)
 }
