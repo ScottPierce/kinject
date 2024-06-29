@@ -29,6 +29,17 @@ val javaVersion = JavaVersion.VERSION_1_8
 val javaVersionInt = javaVersion.ordinal + 1
 val jvmTarget = JvmTarget.JVM_1_8
 
+val ref = System.getenv()["GITHUB_REF"]
+val releaseVersion: String? = if (
+    System.getenv()["GITHUB_REF_TYPE"] == "tag" &&
+    ref?.startsWith("refs/tags/v") == true
+) {
+    ref.removePrefix("refs/tags/v")
+        .also { println("Releasing Version: $it") }
+} else {
+    null
+}
+
 subprojects {
     group = "dev.scottpierce"
     version = "0.1.0"
@@ -90,11 +101,7 @@ subprojects {
         }
     }
 
-    val ref = System.getenv()["GITHUB_REF"]
-    if (System.getenv()["GITHUB_REF_TYPE"] == "tag" && ref?.startsWith("refs/tags/v") == true) {
-        val version = ref.removePrefix("refs/tags/v")
-        println("Releasing Version: $version")
-
+    if (releaseVersion != null) {
         plugins.withId("com.vanniktech.maven.publish") {
             configure<com.vanniktech.maven.publish.MavenPublishBaseExtension> {
                 publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = true)
@@ -104,7 +111,7 @@ subprojects {
                 coordinates(
                     groupId = "dev.scottpierce",
                     artifactId = project.name,
-                    version = version,
+                    version = releaseVersion,
                 )
 
                 pom {
