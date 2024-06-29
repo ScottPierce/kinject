@@ -25,7 +25,7 @@ object AndroidConfig {
     const val composeCompilerVersion = "1.5.14"
 }
 
-val javaVersion = JavaVersion.VERSION_11
+val javaVersion = JavaVersion.VERSION_1_8
 val javaVersionInt = javaVersion.ordinal + 1
 val jvmTarget = JvmTarget.fromTarget(javaVersion.majorVersion)
 
