@@ -8,7 +8,7 @@ dependencies {
     }
 }
 
-val outputDir = "${project.buildDir}/reports/ktlint/"
+val outputDir = "${project.layout.buildDirectory}/reports/ktlint/"
 val inputFiles = project.fileTree(mapOf("dir" to "src", "include" to "**/*.kt"))
 
 val commonArgs = listOf("**/src/**/*.kt", "!**/src/**/generated/**", "!**/build/**")
