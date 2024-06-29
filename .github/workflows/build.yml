@@ -18,8 +18,8 @@ jobs:
 
       - uses: actions/setup-java@v4
         with:
-          distribution: 'corretto'
-          java-version: '17'
+          distribution: 'zulu'
+          java-version: '21'
 
       - name: Build kinject
         run: ./gradlew :kinject:build
