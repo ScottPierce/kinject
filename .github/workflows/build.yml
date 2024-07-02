@@ -22,4 +22,4 @@ jobs:
           java-version: '21'
 
       - name: Build kinject
-        run: ./gradlew :kinject:build
+        run: ./gradlew :build
