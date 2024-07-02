@@ -9,6 +9,6 @@ android {
 }
 
 dependencies {
-    api(project(":kinject"))
+    api(project(":kinject-core"))
     implementation(libs.androidx.lifecycle.viewmodel.android)
 }

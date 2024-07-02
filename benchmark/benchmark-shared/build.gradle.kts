@@ -11,7 +11,7 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            api(project(":kinject"))
+            api(project(":kinject-core"))
             api(libs.koin.core)
         }
     }

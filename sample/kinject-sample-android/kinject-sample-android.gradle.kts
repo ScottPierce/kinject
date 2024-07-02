@@ -41,7 +41,7 @@ android {
 }
 
 dependencies {
-    implementation(project(":kinject"))
+    implementation(project(":kinject-core"))
     implementation(project(":kinject-compose"))
     implementation(project(":kinject-compose-viewmodel"))
 

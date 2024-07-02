@@ -1,4 +1,6 @@
-import com.vanniktech.maven.publish.SonatypeHost
+@file:OptIn(ExperimentalWasmDsl::class)
+
+import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
 plugins {
     alias(libs.plugins.kotlin.multiplatform)
@@ -11,6 +13,8 @@ kotlin {
         browser()
         nodejs()
     }
+    wasmJs()
+    wasmWasi()
     macosArm64()
     macosX64()
     iosX64()
@@ -19,6 +23,8 @@ kotlin {
     tvosX64()
     tvosArm64()
     tvosSimulatorArm64()
+
+    applyDefaultHierarchyTemplate()
 
     sourceSets {
         commonTest.dependencies {
