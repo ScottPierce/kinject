@@ -9,13 +9,15 @@ A multiplatform Dependency Injection library.
 
 ## Artifacts
 
-| Artifact                  | Description                                                                          |
-|---------------------------|--------------------------------------------------------------------------------------|
-| kinject                   | Provides core DI functionality.                                                      |
-| kinject-android           |                                                                                      |
-| kinject-compose           | Provides the ability to provide an ObjectGraph in a Compose hierarchy.               |
-| kinject-compose-viewmodel | Provides the ability to get a ViewModel in a compose hierarchy.                      |
-| kinject-viewmodel         | Provides the ability to declare a view model dependency, and a factory to create it. |
+| Artifact                  | Description                                                                                                                                    |
+|---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| kinject                   | Provides core DI functionality.                                                                                                                |
+| kinject-android           | Provides helper methods for working with `ObjectGraph`s embedded in `Context`s, and helper classes for embedding `ObjectGraph`s in `Contexts`. |
+| kinject-android-appcompat | Provides `KinjectAppCompatActivity`.                                                                                                           |
+| kinject-android-compose   | Provides `KinjectComponentActivity`.                                                                                                           |
+| kinject-compose           | Provides the ability to provide an ObjectGraph in a Compose hierarchy.                                                                         |
+| kinject-compose-viewmodel | Provides the ability to get a ViewModel in a compose hierarchy.                                                                                |
+| kinject-viewmodel         | Provides the ability to declare a view model dependency, and a factory to create it.                                                           |
 
 
 ## Usage
