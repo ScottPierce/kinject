@@ -5,9 +5,10 @@ plugins {
 }
 
 android {
-    namespace = "kinject.android"
+    namespace = "kinject.android.compose"
 }
 
 dependencies {
-    api(project(":kinject-core"))
+    api(project(":kinject-android"))
+    implementation(libs.androidx.activity.compose)
 }
