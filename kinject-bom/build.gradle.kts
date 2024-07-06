@@ -15,6 +15,7 @@ dependencies {
         api(project(":kinject-android-compose"))
         api(project(":kinject-compose"))
         api(project(":kinject-compose-viewmodel"))
+        api(project(":kinject-coroutines"))
         api(project(":kinject-viewmodel"))
     }
 }

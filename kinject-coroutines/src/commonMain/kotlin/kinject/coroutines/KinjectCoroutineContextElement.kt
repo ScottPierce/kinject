@@ -20,6 +20,9 @@ fun CoroutineContext.objectGraph(): ObjectGraph {
         ?: error("Can't find 'KinjectCoroutineContextElement' in the current CoroutineContext.")
 }
 
+operator fun CoroutineContext.plus(objectGraph: ObjectGraph) =
+    this.plus(KinjectCoroutineContextElement(objectGraph))
+
 suspend fun objectGraphOrNull(): ObjectGraph? = coroutineContext.objectGraphOrNull()
 
 suspend fun objectGraph(): ObjectGraph = coroutineContext.objectGraph()
