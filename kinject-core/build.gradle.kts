@@ -1,5 +1,3 @@
-@file:OptIn(ExperimentalWasmDsl::class)
-
 import org.jetbrains.kotlin.gradle.targets.js.dsl.ExperimentalWasmDsl
 
 plugins {
@@ -19,8 +17,6 @@ kotlin {
             }
         }
     }
-    wasmJs()
-    wasmWasi()
     macosArm64()
     macosX64()
     iosX64()

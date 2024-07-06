@@ -7,17 +7,10 @@ plugins {
 
 android {
     namespace = "kinject.compose.viewmodel"
-
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
-    }
 }
 
 dependencies {
     api(project(":kinject-compose"))
     api(project(":kinject-viewmodel"))
-    implementation(libs.androidx.lifecycle.viewmodel.compose)
+    api(libs.androidx.lifecycle.viewmodel.compose)
 }

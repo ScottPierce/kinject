@@ -7,13 +7,6 @@ plugins {
 
 android {
     namespace = "kinject.compose"
-
-    buildFeatures {
-        compose = true
-    }
-    composeOptions {
-        kotlinCompilerExtensionVersion = libs.versions.compose.compiler.get()
-    }
 }
 
 composeCompiler {

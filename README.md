@@ -11,7 +11,7 @@ A multiplatform Dependency Injection library.
 
 | Artifact                  | Description                                                                                                                                    |
 |---------------------------|------------------------------------------------------------------------------------------------------------------------------------------------|
-| kinject                   | Provides core DI functionality.                                                                                                                |
+| kinject-core              | Provides core DI functionality.                                                                                                                |
 | kinject-android           | Provides helper methods for working with `ObjectGraph`s embedded in `Context`s, and helper classes for embedding `ObjectGraph`s in `Contexts`. |
 | kinject-android-appcompat | Provides `KinjectAppCompatActivity`.                                                                                                           |
 | kinject-android-compose   | Provides `KinjectComponentActivity`.                                                                                                           |
