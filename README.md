@@ -25,7 +25,9 @@ implementation("dev.scottpierce:kinject-core:<latest version here>")
 | kinject-viewmodel          | Provides the ability to declare a view model dependency, and a factory to create it.                                                           |
 
 
-## Usage
+## Basic Usage
+
+Dependencies:
 
 ```kotlin
 class A
@@ -36,7 +38,11 @@ class C(
     val a: A,
     val b: B,
 )
+```
 
+Usage: 
+
+```kotlin
 val graph = objectGraph {
     singleton(A())                          // Provided Binding
     singleton { B(a = get()) }              // Lazy Binding
@@ -46,4 +52,26 @@ val graph = objectGraph {
 val a: A = graph.get()
 val b: B = graph.get()
 val c: C = graph.get()
+```
+
+## Adding an ObjectGraph to another ObjectGraph
+
+`ObjectGraph`s can be added together to scope dependencies. After adding a graph, all of it's
+dependencies become accessible to the new graph.
+
+```kotlin
+val graph1 = objectGraph {
+    singleton(A())
+    singleton { B(a = get()) }
+}
+
+val graph2 = objectGraph {
+    add(graph1)                             // Add the first graph 2 this graph
+    
+    singleton { C(a = get(), b = get()) }   // Now we can access all of the first graphs dependencies
+}
+
+val a: A = graph2.get()
+val b: B = graph2.get()
+val c: C = graph2.get()
 ```
