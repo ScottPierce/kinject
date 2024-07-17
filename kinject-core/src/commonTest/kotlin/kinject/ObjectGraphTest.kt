@@ -90,9 +90,27 @@ class ObjectGraphTest {
             graph.get<CyclicalA>()
         }
     }
+
+    @Test
+    fun objectGraph_singletonInstanceInheritance_AbleToViewAsParent() {
+        val aa = AA()
+
+        val graph = objectGraph {
+            singleton<A>(aa)
+        }
+
+        val a: A = graph.get()
+        assertSame(aa, a)
+
+        assertFailsWith<KinjectException> {
+            graph.get<AA>()
+        }
+    }
 }
 
-class A
+open class A
+
+class AA : A()
 
 class B(val a: A)
 
