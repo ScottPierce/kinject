@@ -15,5 +15,5 @@ composeCompiler {
 
 dependencies {
     implementation(project(":kinject-core"))
-    implementation(libs.compose.runtime)
+    api(libs.compose.runtime)
 }
