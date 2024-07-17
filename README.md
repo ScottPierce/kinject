@@ -1,6 +1,6 @@
 # Kinject
 
-[![Download](https://img.shields.io/maven-central/v/dev.scottpierce/kinject)](https://central.sonatype.com/artifact/dev.scottpierce/kinject-core/versions)
+[![Download](https://img.shields.io/maven-central/v/dev.scottpierce/kinject-core)](https://central.sonatype.com/artifact/dev.scottpierce/kinject-core/versions)
 
 **This library was made from a series of blog posts on creating a Kotlin Dependency Injection Library.
 You can find all the posts [here](https://scottpierce.dev/categories/making-a-kotlin-dependency-injection-library/).**
