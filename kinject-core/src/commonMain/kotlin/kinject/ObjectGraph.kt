@@ -49,9 +49,13 @@ class ObjectGraph private constructor(
             )
         }
 
+        inline fun <reified T : Any> singleton(instance: T) {
+            singleton(instance = instance, bindType = T::class)
+        }
+
         fun <T : Any> singleton(
             instance: T,
-            bindType: KClass<*> = instance::class,
+            bindType: KClass<T>,
         ) {
             val bindingKey = bindType.className
             addBinding(
