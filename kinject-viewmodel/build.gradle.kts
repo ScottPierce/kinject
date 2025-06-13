@@ -6,7 +6,10 @@ plugins {
 
 kotlin {
     jvm()
-    js()
+    js {
+        browser()
+        nodejs()
+    }
     androidTarget()
     macosArm64()
     macosX64()

@@ -104,7 +104,7 @@ subprojects {
     if (releaseVersion != null) {
         plugins.withId("com.vanniktech.maven.publish") {
             configure<com.vanniktech.maven.publish.MavenPublishBaseExtension> {
-                publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = true)
+                publishToMavenCentral(SonatypeHost.CENTRAL_PORTAL, automaticRelease = false)
 
                 signAllPublications()
 
