@@ -5,7 +5,10 @@ plugins {
 
 kotlin {
     jvm()
-    js()
+    js {
+        browser()
+        nodejs()
+    }
     macosArm64()
     macosX64()
     iosX64()
